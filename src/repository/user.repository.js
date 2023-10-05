@@ -23,13 +23,28 @@ const result = (await client.query(sql, [name, surname, email, password, id])).r
 return result
 }
 
-async function getUserByEmaillDb(emai){
+async function getUserByEmaill(email){
     const client = await pool.connect()
-    const sql = "select * from user where email = $1 returning*"
+    const sql = "select * from users where email = $1"
     const result = (await client.query(sql, [email])).rows
     return result
-
-
 }
 
-module.exports = { getAllUserDb, createUserDb, updateUserDb, getUserByEmaillDb };
+
+async function deleteUserDb(id){
+  const client = await pool.connect()
+  const sql = "delete from users  where id = $1 returning*"
+  const result = (await client.query(sql, [id])).rows
+  return result
+  }
+
+  async function getUserByEmailDb(email){
+    const client = await pool.connect()
+    const sql = "select * from users where email = $1"
+    const result = (await client.query(sql, [email])).rows
+    return result
+}
+
+
+
+module.exports = { getAllUserDb, createUserDb, updateUserDb, getUserByEmaill, deleteUserDb, getUserByEmailDb };
