@@ -33,7 +33,7 @@ async function getUserByEmaill(email){
 
 async function deleteUserDb(id){
   const client = await pool.connect()
-  const sql = "delete from users  where id = $1 returning*"
+  const sql = "delete from users  where id = $1"
   const result = (await client.query(sql, [id])).rows
   return result
   }

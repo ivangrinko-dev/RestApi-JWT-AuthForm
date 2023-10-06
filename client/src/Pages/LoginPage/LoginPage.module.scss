@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      color: #12141a;
+      font: 500 23px Inter;
+    }
+
+    p {
+      color: #606778;
+      font: 500 14px Inter;
+    }
+  }
+
+
+
+    p {
+      color: #606778;
+      font: 500 12px Inter;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      color: #7b8499;
+      font: 500 14px Inter;
+      border-radius: 6px;
+      border: 1px solid #cad0db;
+    }
+  
+
+  button {
+    width: 96px;
+    padding: 12px;
+    border-radius: 4px;
+    background: var(--blue-6, #228be6);
+    margin-left: auto;
+    color: var(--other-white, #fff);
+    border-width: 0;
+  }
+
+  p {
+    color: #7b8499;
+    font: 500 14px Inter;
+    margin-left: auto;
+  }
+}
