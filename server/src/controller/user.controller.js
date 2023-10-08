@@ -6,6 +6,7 @@ const {
   deleteUser,
   authorizationUser,
 } = require("../service/user.service");
+const createToken = require("../helper/JWT");
 
 const route = express.Router();
 
@@ -53,6 +54,11 @@ route.post("/auth", async (req, res) => {
   try {
     const { email, password } = req.body;
     const data = await authorizationUser(email, password);
+    const token = createToken(data);
+    res.cookie("acceass_token", token, {
+      httpOnly: false,
+      secure: true,
+    });
     res.send(data);
   } catch (error) {
     res.send(error.message);
