@@ -6,16 +6,17 @@ import axios from "axios";
 
 function LoginPage() {
   const [input, setInput] = useState({ email: "", password: "" });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   function chengeInp(event) {
     setInput({ ...input, [event.target.name]: event.target.value });
   }
   async function authUser() {
-    
-    const result = await axios.post("http://localhost:3001/user/auth", input, {withCredentials: true})
+    const result = await axios.post("http://localhost:3001/user/auth", input, {
+      withCredentials: true,
+    });
     console.log(result.data);
     console.log(input);
-    navigate('/home')
+    navigate("/home");
   }
   return (
     <div>

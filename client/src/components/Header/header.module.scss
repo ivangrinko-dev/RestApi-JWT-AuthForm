@@ -1,12 +1,12 @@
-.wrapper {
-display: flex;
-justify-content: center;
-gap: 24px
+.header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    gap: 46px;    
 
-
-p {
-    color: #000;
-    font:400 16px Inter;
-    font-style: normal;
-}
+    p {
+        color: #000;
+        font: 400 16px Inter;
+        margin-top: 24px;
+    }
 }
