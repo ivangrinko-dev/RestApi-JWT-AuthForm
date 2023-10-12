@@ -1,11 +1,15 @@
 import Header from "../../components/Header/Header";
 import style from "./LoginPage.module.scss";
-import { useState } from "react";
+import { useState,  useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import MyContext from "../../context/context";
+
 function LoginPage() {
   const [input, setInput] = useState({ email: "", password: "" });
+  const contextGlobalData = useContext(MyContext);
+
   const navigate = useNavigate();
   function chengeInp(event) {
     setInput({ ...input, [event.target.name]: event.target.value });
@@ -16,6 +20,8 @@ function LoginPage() {
     });
     console.log(result.data);
     console.log(input);
+    contextGlobalData.login();
+
     navigate("/home");
   }
   return (
